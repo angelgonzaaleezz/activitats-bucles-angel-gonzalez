@@ -1,9 +1,21 @@
-// Activitat 04 — Temperatures en bucle (quantitat per teclat)
+
+import java.util.Scanner;
+
+// Activitat 01 — Temperatures en bucle
 public class TemperaturaBucleN {
     public static void main(String[] args) {
-        // TODO: demana quantes temperatures (N) vol convertir l'usuari
-        //   i després, amb un bucle, llegeix N temperatures en Fahrenheit
-        //   i mostra per cadascuna l'equivalent en graus Celsius:
-        //   temperatureC = ((temperatureF - 32) * 5) / 9
+        
+        Scanner teclat = new Scanner(System.in);
+        int i=1;
+        System.out.println("Introdueix quantes temperatures vols mesurar:");
+        int n= teclat.nextInt();
+        while(i<=n){
+            System.out.println("Introdueix temperatura numero " + i + " en graus farenheit:");
+            double temp = teclat.nextDouble();
+            double t1=((temp-32)*5)/9;
+            System.out.println(temp + " graus farenheit son "+ t1 + " graus celsius!");
+            i++;
+        }
+
     }
 }
