@@ -16,7 +16,7 @@ int min;
 int nseg;
 int i=0;
 Scanner teclat= new Scanner(System.in);
-while(i<=4){
+while(i<=3){
 System.out.println("Introdueix segons: ");
 seg= teclat.nextInt();
 
