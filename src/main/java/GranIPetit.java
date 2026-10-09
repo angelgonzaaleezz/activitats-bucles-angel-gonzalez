@@ -14,12 +14,11 @@ public class GranIPetit {
         System.out.print("Introdueix el número petit: ");
         int petit = teclat.nextInt();
 
-        while (gran >= petit) {
+        while (gran > petit) {
             System.out.println("Gran = " + gran + "   Petit = " + petit);
             gran /= 2;
             petit *= 2;
         }
-        System.out.println("Gran = " + gran + "   Petit = " + petit);
 
     }
 }

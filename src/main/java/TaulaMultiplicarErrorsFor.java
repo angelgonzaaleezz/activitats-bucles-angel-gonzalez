@@ -10,11 +10,10 @@ public class TaulaMultiplicarErrorsFor {
         //   salt de línia), llegeix la resposta i digues "correcte!" o "incorrecte!"
         //   (comptant els errors). Al final: "Has comès X errors!"
         Scanner teclat = new Scanner(System.in);
-        int i = 1;
         System.out.print("Introdueix un número per veure la seva taula de multiplicar: ");
         int numero = teclat.nextInt();
         int errors = 0;
-        for(i=1; i<=10; i++){
+        for(int i=1; i<=10; i++){
             System.out.print(numero + " × " + i + " = ");
             int resposta = teclat.nextInt();
             if(resposta == numero * i){
