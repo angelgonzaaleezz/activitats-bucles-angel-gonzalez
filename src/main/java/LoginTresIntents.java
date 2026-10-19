@@ -11,5 +11,26 @@ public class LoginTresIntents {
         //   ⛔ NO facis servir break (ni similar), ni alteris el comptador
         //      d'intents per forçar la sortida del bucle
         //   Si s'acaben els 3 intents sense encertar, mostra "Usuari bloquejat!"
+        String usuariCorrecte = "cponts";
+        String contrasenyaCorrecta = "qw34T1234";
+        int intents = 0;
+        boolean encertat = false;
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        while (intents < 3 && !encertat) {
+            System.out.print("Introdueix l'usuari: ");
+            String usuari = scanner.nextLine();
+            System.out.print("Introdueix la contrasenya: ");
+            String contrasenya = scanner.nextLine();
+            if (usuari.equals(usuariCorrecte) && contrasenya.equals(contrasenyaCorrecta)) {
+                System.out.println("Usuari i contrasenya correctes!");
+                encertat = true;
+            } else {
+                System.out.println("Usuari o contrasenya incorrectes.");
+                intents++;
+            }
+        }
+        if (!encertat) {
+            System.out.println("Usuari bloquejat!");
+        }
     }
 }

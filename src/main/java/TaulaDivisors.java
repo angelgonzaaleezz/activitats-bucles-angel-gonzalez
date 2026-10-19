@@ -8,5 +8,26 @@ public class TaulaDivisors {
         //   pel divisor, "-" si no ho és
         //   (pots fer servir System.out.printf amb "%4d" / "%4s" per alinear les
         //   columnes)
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Introdueix el dividend inicial: ");
+        int dividendInicial = scanner.nextInt();
+        System.out.print("Introdueix el dividend final: ");
+        int dividendFinal = scanner.nextInt();
+        System.out.printf("%4s", "");
+        for (int dividend = dividendInicial; dividend <= dividendFinal; dividend++) {
+            System.out.printf("%4d", dividend);
+        }
+        System.out.println();
+        for (int divisor = 1; divisor <= 10; divisor++) {
+            System.out.printf("%4d", divisor);
+            for (int dividend = dividendInicial; dividend <= dividendFinal; dividend++) {   
+                if (dividend % divisor == 0) {
+                    System.out.printf("%4s", "*");
+                } else {
+                    System.out.printf("%4s", "-");
+                }
+            }
+            System.out.println();
+        }
     }
 }
