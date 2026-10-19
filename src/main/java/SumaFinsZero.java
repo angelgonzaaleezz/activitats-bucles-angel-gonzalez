@@ -1,6 +1,7 @@
+import java.util.Scanner;
+
 // Activitat 21 — Suma acumulada, fins al 0
 
-import java.util.Scanner;
 
 public class SumaFinsZero {
     public static void main(String[] args) {
@@ -10,14 +11,15 @@ public class SumaFinsZero {
         //   Quan s'entri el 0, mostra "La suma total dels números introduïts és: <suma>"
         Scanner teclat = new Scanner(System.in);
         int suma = 0;
-        int i = 1;
-        while (i != 0) {
+        int numero;
+        do {
             System.out.print("Introdueix un número (0 per acabar): ");
-            int numero = teclat.nextInt();
-            i = numero;
+            numero = teclat.nextInt();
             suma = suma + numero;
-            System.out.println("La suma fins ara és " + suma);
-        }
+            if (numero != 0) {
+                System.out.println("La suma fins ara és " + suma);
+            }
+        } while (numero != 0);
         System.out.println("La suma total dels números introduïts és: " + suma);
     }
 }

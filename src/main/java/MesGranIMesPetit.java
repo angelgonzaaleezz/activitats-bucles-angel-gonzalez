@@ -1,6 +1,7 @@
+import java.util.Scanner;
+
 // Activitat 25 — Més gran i més petit
 
-import java.util.Scanner;
 
 public class MesGranIMesPetit {
     public static void main(String[] args) {
@@ -10,11 +11,13 @@ public class MesGranIMesPetit {
         //   primer número llegit) i actualitza'ls quan calgui
         //   Mostra: "El número més gran és: <mesGran> i el més petit: <mesPetit>"
         Scanner teclat = new Scanner(System.in);
-        int mesGran = Integer.MIN_VALUE;
-        int mesPetit = Integer.MAX_VALUE;
-        for (int i = 0; i < 20; i++) {
-            System.out.print("Introdueix un número: ");
-            int numero = teclat.nextInt();
+        System.out.println("Introdueix un número:");
+        int numero = teclat.nextInt();
+        int mesGran = numero;
+        int mesPetit = numero;
+        for (int i = 2; i <= 20; i++) {
+            System.out.println("Introdueix un número:");
+            numero = teclat.nextInt();
             if (numero > mesGran) {
                 mesGran = numero;
             }
@@ -23,7 +26,5 @@ public class MesGranIMesPetit {
             }
         }
         System.out.println("El número més gran és: " + mesGran + " i el més petit: " + mesPetit);
-      
-
     }
 }

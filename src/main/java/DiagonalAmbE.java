@@ -7,9 +7,9 @@ public class DiagonalAmbE {
         for (int fila = 1; fila <= 9; fila++) {
             for (int columna = 1; columna <= 9; columna++) {
                 if (fila == columna) {
-                    System.out.print("E");
+                    System.out.print("E ");
                 } else {
-                    System.out.print("*");
+                    System.out.print("* ");
                 }
             }
             System.out.println();

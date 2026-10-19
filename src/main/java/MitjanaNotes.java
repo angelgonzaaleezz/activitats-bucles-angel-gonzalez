@@ -1,6 +1,8 @@
+import java.util.Locale;
+import java.util.Scanner;
+
 // Activitat 22 — Mitjana de notes
 
-import java.util.Scanner;
 
 public class MitjanaNotes {
     public static void main(String[] args) {
@@ -9,16 +11,17 @@ public class MitjanaNotes {
         //      en una variable (suma = suma + nota)
         //   3) calcula la mitjana dividint la suma entre N
         //   4) mostra: "La mitjana de les notes és: <mitjana>"
+        Locale.setDefault(Locale.US);
         Scanner teclat = new Scanner(System.in);
-        System.out.print("Introdueix el número d'alumnes: ");
+        System.out.println("Quants alumnes hi ha al grup?");
         int num = teclat.nextInt();
-        int suma = 0;
+        double suma = 0;
         for (int i = 1; i <= num; i++) {
-            System.out.print("Introdueix la nota de l'alumne " + i + ": ");
-            int nota = teclat.nextInt();
+            System.out.println("Entra la nota de l'alumne " + i + ":");
+            double nota = teclat.nextDouble();
             suma = suma + nota;
         }
-        double mitjana = (double) suma / num;
+        double mitjana = suma / num;
         System.out.println("La mitjana de les notes és: " + mitjana);
     }
 }

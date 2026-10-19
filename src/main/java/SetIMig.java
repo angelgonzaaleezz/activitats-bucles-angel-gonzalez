@@ -1,6 +1,9 @@
+import java.util.Locale;
+import java.util.Random;
+import java.util.Scanner;
+
 // Activitat 29 — El set i mig
 
-import java.util.Scanner;
 
 public class SetIMig {
     public static void main(String[] args) {
@@ -16,20 +19,35 @@ public class SetIMig {
         //     "Has Perdut!!!!" si el total supera 7.5
         //     "Has Guanyat <2 x aposta> euros." si el total és exactament 7.5
         //     "El jugador es planta!!!" en cas contrari
-        Scanner scanner = new java.util.Scanner(System.in);
-        System.out.print("Introdueix la teva aposta: ");
-        double aposta = scanner.nextDouble();
+        Locale.setDefault(Locale.US);
+        Scanner teclat = new Scanner(System.in);
+        Random random = new Random();
+        System.out.println("Quant vols apostar?");
+        double aposta = teclat.nextDouble();
         double total = 0;
         boolean volSeguir = true;
         while (total < 7.5 && volSeguir) {
-            int carta = new java.util.Random().nextInt(10) + 1;
-            double valorCarta = (carta >= 8) ? 0.5 : carta;
-            total += valorCarta;
-            System.out.println("Carta: " + carta + ", Total: " + total);
+            int carta = random.nextInt(10) + 1;
+            double valorCarta;
+            if (carta >= 8) {
+                valorCarta = 0.5;
+            } else {
+                valorCarta = carta;
+            }
+            total = total + valorCarta;
+            if (carta == 8) {
+                System.out.println("Has tret una sota (val " + valorCarta + " punts). Portes " + total + " punts.");
+            } else if (carta == 9) {
+                System.out.println("Has tret un cavall (val " + valorCarta + " punts). Portes " + total + " punts.");
+            } else if (carta == 10) {
+                System.out.println("Has tret un rei (val " + valorCarta + " punts). Portes " + total + " punts.");
+            } else {
+                System.out.println("Has tret un " + carta + " (val " + valorCarta + " punts). Portes " + total + " punts.");
+            }
             if (total < 7.5) {
-                System.out.print("Vols una altra carta? (s/n): ");
-                String resposta = scanner.next();
-                volSeguir = resposta.equalsIgnoreCase("s"); 
+                System.out.println("Vols una altra carta? (s/n)");
+                String resposta = teclat.next();
+                volSeguir = resposta.equalsIgnoreCase("s");
             }
         }
         if (total > 7.5) {

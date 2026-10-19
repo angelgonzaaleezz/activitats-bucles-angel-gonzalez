@@ -21,6 +21,6 @@ public class MultiplicarAmbSumes {
                 System.out.print("+ " + operand1 + " ");    
             }
         }
-        System.out.println ("= " + resultat);    
+        System.out.println("= " + resultat);
     }
 }

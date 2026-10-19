@@ -1,6 +1,8 @@
+import java.util.Random;
+import java.util.Scanner;
+
 // Activitat 30 — Pedra, paper o tisora, a 3 victòries
 
-import java.util.Scanner;
 
 public class PedraPaperTisoraA3 {
     public static void main(String[] args) {
@@ -16,31 +18,41 @@ public class PedraPaperTisoraA3 {
         //   guanyat la partida
         int victoriesUsuari = 0;
         int victoriesOrdinador = 0;
-        Scanner scanner = new java.util.Scanner(System.in); 
+        Scanner teclat = new Scanner(System.in);
+        Random random = new Random();
         while (victoriesUsuari < 3 && victoriesOrdinador < 3) {
-            System.out.print("Introdueix la teva jugada (pedra/paper/tisora): ");
-            String jugadaUsuari = scanner.nextLine().toLowerCase();
-            int jugadaOrdinador = new java.util.Random().nextInt(3);
-            String[] opcions = {"pedra", "paper", "tisora"};
-            String jugadaOrdinadorStr = opcions[jugadaOrdinador];
-            System.out.println("L'ordinador ha triat: " + jugadaOrdinadorStr);
-            if (jugadaUsuari.equals(jugadaOrdinadorStr)) {
-                System.out.println("Empat!");
-            } else if ((jugadaUsuari.equals("pedra") && jugadaOrdinadorStr.equals("tisora")) ||
-                       (jugadaUsuari.equals("paper") && jugadaOrdinadorStr.equals("pedra")) ||
-                       (jugadaUsuari.equals("tisora") && jugadaOrdinadorStr.equals("paper"))) {
-                System.out.println("Has guanyat aquesta ronda!");
-                victoriesUsuari++;
+            System.out.println("Entra pedra, paper o tisora:");
+            String jugadaUsuari = teclat.next().toLowerCase();
+            if (!jugadaUsuari.equals("pedra") && !jugadaUsuari.equals("paper") && !jugadaUsuari.equals("tisora")) {
+                System.out.println("Jugada no vàlida!");
             } else {
-                System.out.println("L'ordinador ha guanyat aquesta ronda!");
-                victoriesOrdinador++;
+                int atzar = random.nextInt(3);
+                String jugadaOrdinador;
+                if (atzar == 0) {
+                    jugadaOrdinador = "pedra";
+                } else if (atzar == 1) {
+                    jugadaOrdinador = "paper";
+                } else {
+                    jugadaOrdinador = "tisora";
+                }
+                System.out.println("Ordinador ha tret: " + jugadaOrdinador);
+                if (jugadaUsuari.equals(jugadaOrdinador)) {
+                    System.out.println("Heu empatat!! Ordinador: " + victoriesOrdinador + " , tú: " + victoriesUsuari);
+                } else if ((jugadaUsuari.equals("pedra") && jugadaOrdinador.equals("tisora")) ||
+                           (jugadaUsuari.equals("paper") && jugadaOrdinador.equals("pedra")) ||
+                           (jugadaUsuari.equals("tisora") && jugadaOrdinador.equals("paper"))) {
+                    victoriesUsuari++;
+                    System.out.println("Has guanyat! Ordinador: " + victoriesOrdinador + " , tú: " + victoriesUsuari);
+                } else {
+                    victoriesOrdinador++;
+                    System.out.println("Has perdut! Ordinador: " + victoriesOrdinador + " , tú: " + victoriesUsuari);
+                }
             }
-            System.out.println("Marcador: Usuari " + victoriesUsuari + " - Ordinador " + victoriesOrdinador);
         }
         if (victoriesUsuari == 3) {
             System.out.println("Has guanyat la partida!");
         } else {
-            System.out.println("L'ordinador ha guanyat la partida!");   
+            System.out.println("L'ordinador ha guanyat la partida!");
         }
     }
 }

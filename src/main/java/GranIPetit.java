@@ -16,8 +16,8 @@ public class GranIPetit {
 
         while (gran > petit) {
             System.out.println("Gran = " + gran + "   Petit = " + petit);
-            gran /= 2;
-            petit *= 2;
+            gran = gran / 2;
+            petit = petit * 2;
         }
 
     }

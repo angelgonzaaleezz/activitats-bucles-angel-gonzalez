@@ -10,14 +10,14 @@ public class MajusculaMinuscula {
         Scanner teclat = new Scanner(System.in);
         int i = 1;
         while (i <= 10) {
-            System.out.println("Introdueix un caràcter: ");
+            System.out.print("Entra un caràcter: ");
             char c = teclat.next().charAt(0);
             if (c >= 'A' && c <= 'Z') {
-                System.out.println("És una lletra majúscula.");
+                System.out.println("és una lletra majúscula");
             } else if (c >= 'a' && c <= 'z') {
-                System.out.println("És una lletra minúscula.");
+                System.out.println("és una lletra minúscula");
             } else {
-                System.out.println("No és una lletra.");
+                System.out.println("no és una lletra");
             }
             i++;
         }

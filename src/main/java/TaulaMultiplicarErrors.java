@@ -19,9 +19,9 @@ public class TaulaMultiplicarErrors {
             System.out.print(numero + " × " + i + " = ");
             int resposta = teclat.nextInt();
             if(resposta == numero * i){
-                System.out.println("Correcte!");
+                System.out.println("correcte!");
             } else {
-                System.out.println("Incorrecte!");
+                System.out.println("incorrecte!");
                 errors++;
             }
             i++;

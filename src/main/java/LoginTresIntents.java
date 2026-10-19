@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // Activitat 27 — Login amb 3 intents (condició d'acabament complexa)
 public class LoginTresIntents {
     public static void main(String[] args) {
@@ -15,12 +17,12 @@ public class LoginTresIntents {
         String contrasenyaCorrecta = "qw34T1234";
         int intents = 0;
         boolean encertat = false;
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        Scanner teclat = new Scanner(System.in);
         while (intents < 3 && !encertat) {
-            System.out.print("Introdueix l'usuari: ");
-            String usuari = scanner.nextLine();
-            System.out.print("Introdueix la contrasenya: ");
-            String contrasenya = scanner.nextLine();
+            System.out.println("Introdueix el nom d'usuari:");
+            String usuari = teclat.nextLine();
+            System.out.println("Introdueix la contrasenya:");
+            String contrasenya = teclat.nextLine();
             if (usuari.equals(usuariCorrecte) && contrasenya.equals(contrasenyaCorrecta)) {
                 System.out.println("Usuari i contrasenya correctes!");
                 encertat = true;

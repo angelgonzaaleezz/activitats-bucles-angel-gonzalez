@@ -1,6 +1,7 @@
+import java.util.Scanner;
+
 // Activitat 31 — 3 números iguals seguits
 
-import java.util.Scanner;
 
 public class TresIgualsSeguits {
     public static void main(String[] args) {
@@ -12,21 +13,20 @@ public class TresIgualsSeguits {
         //     si és diferent, actualitza "anterior" i posa el comptador a 1
         //   Quan surtis del bucle, mostra:
         //   "Has entrat 3 cops seguits el número <anterior>. Adeu!"
-        Scanner scanner = new java.util.Scanner(System.in);
+        Scanner teclat = new Scanner(System.in);
         System.out.print("Introdueix un número: ");
-        int anterior = scanner.nextInt();
+        int anterior = teclat.nextInt();
         int repeticions = 1;
         while (repeticions < 3) {
             System.out.print("Introdueix un altre número: ");
-            int actual = scanner.nextInt();
+            int actual = teclat.nextInt();
             if (actual == anterior) {
                 repeticions++;
             } else {
                 anterior = actual;
-                repeticions = 1;          
+                repeticions = 1;
             }
-            System.out.println("Repeticions consecutives: " + repeticions);
         }
-System.out.println("Has entrat 3 cops seguits el número " + anterior + ". Adeu!");
+        System.out.println("Has entrat 3 cops seguits el número " + anterior + ". Adeu!");
     }
 }

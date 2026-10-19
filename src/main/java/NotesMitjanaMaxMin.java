@@ -1,3 +1,6 @@
+import java.util.Locale;
+import java.util.Scanner;
+
 // Activitat 26 — Mitjana, nota més gran i nota més petita
 public class NotesMitjanaMaxMin {
     public static void main(String[] args) {
@@ -7,18 +10,19 @@ public class NotesMitjanaMaxMin {
         //      suma, i actualitza notaMajor/notaMenor si cal (comparant-la)
         //   4) calcula la mitjana (suma / N)
         //   5) mostra la mitjana, la nota més gran i la nota més petita
+        Locale.setDefault(Locale.US);
         Scanner teclat = new Scanner(System.in);
-        System.out.print("Introdueix el número d'alumnes: ");
-        int N = teclat.nextInt();
-        System.out.print("Introdueix la nota de l'alumne 1: ");
+        System.out.println("Quants alumnes hi ha al grup?");
+        int n = teclat.nextInt();
+        System.out.println("Entra la nota de l'alumne 1:");
         double nota = teclat.nextDouble();
         double suma = nota;
         double notaMajor = nota;
         double notaMenor = nota;
-        for (int i = 2; i <= N; i++) {
-            System.out.print("Introdueix la nota de l'alumne " + i  + ": ");
+        for (int i = 2; i <= n; i++) {
+            System.out.println("Entra la nota de l'alumne " + i + ":");
             nota = teclat.nextDouble();
-            suma += nota;
+            suma = suma + nota;
             if (nota > notaMajor) {
                 notaMajor = nota;
             }
@@ -26,8 +30,8 @@ public class NotesMitjanaMaxMin {
                 notaMenor = nota;
             }
         }
-        double mitjana = suma / N;
-        System.out.println("La mitjana és: " + mitjana);
+        double mitjana = suma / n;
+        System.out.println("La mitjana de les notes és: " + mitjana);
         System.out.println("La nota més gran és: " + notaMajor);
         System.out.println("La nota més petita és: " + notaMenor);
     }
